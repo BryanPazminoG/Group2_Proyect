@@ -1,10 +1,10 @@
 package espe.edu.ec.dataType.group2;
 
+import com.google.gson.Gson;
 import ec.edu.espe.filemanager.utils.Data;
 import java.io.File;
 import java.util.InputMismatchException;
 import java.util.Scanner;
-import com.google.gson.Gson;
 
 /**
  * @author Group2
@@ -14,10 +14,7 @@ public class PeopleData {
     
     public static void main(String[] args) throws InterruptedException {
         
-        //library : GSON
-        Gson gson = new Gson();
-        String jsonType;
-        
+       File file = new File("Group2.csv");
        Scanner sn = new Scanner(System.in);
        boolean exit = false;
        int option; 
@@ -37,6 +34,7 @@ public class PeopleData {
                
                case 1:
                    
+                   
                    InformationData object1 = new InformationData();
                    object1.DataOut();                   
                    object1.getName();   
@@ -45,20 +43,24 @@ public class PeopleData {
                    object1.getSubject();
                    object1.getAverage();
                    object1.getGender();
-                   
-                   
-                   
                    String dataToSave   =  object1.getName()+","+object1.getAge()+","+object1.getTelephone()+","
-                                         +object1.getSubject()+","+object1.getAverage()+","+object1.getGender();
-                   
-                   System.out.println(" ");
+                                       +object1.getSubject()+","+object1.getAverage()+","+object1.getGender();
                    System.out.println(" ");
                    Data.save("Group2.csv", dataToSave);
+                   //InformationData datas = new InformationData(file,"Juanito");
+                   
+                   //Gson gson = new Gson();
+                   
+                   //System.out.println(gson.toJson(file));
+                   
+                   
+                   
+                   
                    System.out.println(" ");                  
                    break;
                    
                case 2:
-                   File file = new File("Group2.csv");
+                   //File file = new File("Group2.csv");
                    Scanner keyboard = new Scanner(System.in);
                    System.out.println(" ");
                    System.out.print("Write the word to search in the file: ");

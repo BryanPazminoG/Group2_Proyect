@@ -50,12 +50,8 @@ public class InformationData {
                     System.out.print("Enter your gender Male(M) or Female(F):  ");
                     setGender(input.next().charAt(0));             
                     
-                    
-                    
-                    
-                    
-                    line.println(getName()+","+getAge()+","+getSubject()+","+getAverage()+
-                                            ","+getTelephone()+","+getGender());
+                                      
+                    line.println(getName()+","+getAge()+","+getSubject()+","+getAverage()+","+getTelephone()+","+getGender());
                     line.close();
                     write.close();
               
@@ -93,8 +89,24 @@ public class InformationData {
             }                                       
         }
         
-    public InformationData() {
+       /*public InformationData(int age, String name, String subject, String telephone, float average, char gender ) {
+            this.age = age;
+            this.name = name;
+            this.subject = subject;
+            this.telephone = telephone;
+            this.average = average;
+            this.gender = gender;
+            
+    
+    
+}*/
+
+    @Override
+    public String toString() {
+        return "InformationData{" + "age=" + age + ", name=" + name + ", subject=" + subject + ", telephone=" + telephone + ", average=" + average + ", gender=" + gender + '}';
     }
+        
+    
         
         
     /**
