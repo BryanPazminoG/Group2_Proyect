@@ -4,6 +4,7 @@ import ec.edu.espe.filemanager.utils.Data;
 import java.io.File;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import com.google.gson.Gson;
 
 /**
  * @author Group2
@@ -12,6 +13,10 @@ import java.util.Scanner;
 public class PeopleData {
     
     public static void main(String[] args) throws InterruptedException {
+        
+        //library : GSON
+        Gson gson = new Gson();
+        String jsonType;
         
        Scanner sn = new Scanner(System.in);
        boolean exit = false;
