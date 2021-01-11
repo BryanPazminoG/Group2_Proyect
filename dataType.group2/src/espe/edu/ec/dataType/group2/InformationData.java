@@ -49,7 +49,8 @@ public class InformationData {
                     setAverage(input.nextFloat()); 
                     System.out.print("Enter your gender Male(M) or Female(F):  ");
                     setGender(input.next().charAt(0));             
-                    line.println(getName()+","+getAge()+","+getSubject()+","+getAverage()+","+getTelephone()+","+getGender());
+                    line.println(getName()+","+getAge()+","+getSubject()+","+getAverage()+
+                                            ","+getTelephone()+","+getGender());
                     line.close();
                     write.close();
               
