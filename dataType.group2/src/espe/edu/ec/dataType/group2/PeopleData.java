@@ -45,6 +45,12 @@ public class PeopleData {
                    object1.getGender();
                    String dataToSave   =  object1.getName()+","+object1.getAge()+","+object1.getTelephone()+","
                                        +object1.getSubject()+","+object1.getAverage()+","+object1.getGender();
+                   
+                   
+                   InformationData object2 = new InformationData(23, "Anthony Macas", "POO" , "09687428556" ,15 ,  'M') {
+                   String dataTosave=object2;
+                   }
+                   
                    System.out.println(" ");
                    Data.save("Group2.csv", dataToSave);
                    //InformationData datas = new InformationData(file,"Juanito");

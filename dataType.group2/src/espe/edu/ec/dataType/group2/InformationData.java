@@ -5,7 +5,6 @@
  */
 package espe.edu.ec.dataType.group2;
 
-
 import java.io.*;
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -15,17 +14,42 @@ import java.util.logging.Logger;
  *
  * @author Group2
  */
-
 public class InformationData {
+
+    private int age;
+    private String name;
+    private String subject;
+    private String telephone;
+    private float average;
+    private char gender;
+
+    public InformationData() {
+    this.age = 0;
+    this.name = "";
+    this.subject = "";
+    this.telephone= "";
+    this.average = 0;
+    this.gender = ' ';
+
+}
+
+    public InformationData(int age, String name, String subject, String telephone, float average, char gender) {
+        this.age = age;
+        this.name = name;
+        this.subject = subject;
+        this.telephone = telephone;
+        this.average = average;
+        this.gender = gender;
+    }
+
+    @Override
+    public String toString() {
+        return "InformationData{" + "age=" + age + ", name=" + name + ", subject=" + subject + ", telephone=" + telephone + ", average=" + average + ", gender=" + gender + '}';
+    }
     
-    private int age = 0;
-    private String name = "";
-    private String subject = "";
-    private String telephone = "";
-    private float average = 0;
-    private char gender = ' ';
     
-        public void DataOut(){
+    
+public void DataOut(){
             
             Scanner input = new Scanner(System.in);
             File file = new File("Group2.csv");
@@ -54,8 +78,11 @@ public class InformationData {
                     write.close();
               
 
-                }catch (IOException ex) {
-                    Logger.getLogger(PeopleData.class.getName()).log(Level.SEVERE, null, ex);
+                
+
+}catch (IOException ex) {
+                    Logger.getLogger(PeopleData.class
+.getName()).log(Level.SEVERE, null, ex);
                 }
             
             } else {
@@ -81,8 +108,11 @@ public class InformationData {
                 line.close();
                 write.close();
 
-                } catch (IOException ex) {
-                    Logger.getLogger(PeopleData.class.getName()).log(Level.SEVERE, null, ex);
+                
+
+} catch (IOException ex) {
+                    Logger.getLogger(PeopleData.class
+.getName()).log(Level.SEVERE, null, ex);
                 }           
             }                                       
         }
@@ -171,4 +201,3 @@ public class InformationData {
         this.gender = gender;
     }
 }
-
