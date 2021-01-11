@@ -40,8 +40,13 @@ public class PeopleData {
                    object1.getSubject();
                    object1.getAverage();
                    object1.getGender();
+                   
+                   Gson gson = new Gson();
+                   
+                   
                    String dataToSave   =  object1.getName()+","+object1.getAge()+","+object1.getTelephone()+","
                                          +object1.getSubject()+","+object1.getAverage()+","+object1.getGender();
+                   
                    System.out.println(" ");
                    System.out.println(" ");
                    Data.save("Group2.csv", dataToSave);
