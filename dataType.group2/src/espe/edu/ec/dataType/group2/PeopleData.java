@@ -47,9 +47,9 @@ public class PeopleData {
                                        +object1.getSubject()+","+object1.getAverage()+","+object1.getGender();
                    
                    
-                   InformationData object2 = new InformationData(23, "Anthony Macas", "POO" , "09687428556" ,15 ,  'M') {
-                   String dataTosave=object2;
-                   }
+                   InformationData object2 = new InformationData(23, "Anthony Macas", "POO" , "09687428556" ,15 ,  'M'); 
+                
+                   
                    
                    System.out.println(" ");
                    Data.save("Group2.csv", dataToSave);
@@ -74,6 +74,8 @@ public class PeopleData {
                    System.out.println("");
                    Data.find(file, data);
                    System.out.println(" ");
+ //                  System.out.println("toys size --> " + Data.length);
+
                    break;
                    
                case 3:
