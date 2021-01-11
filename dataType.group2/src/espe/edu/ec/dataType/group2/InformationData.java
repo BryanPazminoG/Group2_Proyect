@@ -5,7 +5,6 @@
  */
 package espe.edu.ec.dataType.group2;
 
-
 import java.io.*;
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -15,15 +14,15 @@ import java.util.logging.Logger;
  *
  * @author Group2
  */
-
 public class InformationData {
-    
+
     private int age = 0;
     private String name = "";
     private String subject = "";
     private String telephone = "";
     private float average = 0;
     private char gender = ' ';
+<<<<<<< HEAD
     
         public void DataOut(){
             
@@ -62,6 +61,30 @@ public class InformationData {
             
             } else {
                 try {
+=======
+
+    @Override
+    public String toString() {
+        return "InformationData{" + "age=" + age + ", name=" + name + ", subject=" + subject + ", telephone=" + telephone + ", average=" + average + ", gender=" + gender + '}';
+    }
+
+    public InformationData() {
+        this.age = 0;
+        this.name = "";
+        this.subject = "";
+        this.telephone = "";
+        this.average = 0;
+        this.gender = ' ';
+    }
+ 
+    public void DataOut() {
+
+        Scanner input = new Scanner(System.in);
+        File file = new File("Group2.csv");
+
+        if (!file.exists()) {
+            try {
+                file.createNewFile();
                 FileWriter write = new FileWriter(file, true);
                 PrintWriter line = new PrintWriter(write);
 
@@ -75,19 +98,48 @@ public class InformationData {
                 System.out.print("Enter your subject: ");
                 setSubject(input.nextLine());
                 System.out.print("Enter your average: ");
-                setAverage(input.nextFloat()); 
+                setAverage(input.nextFloat());
                 System.out.print("Enter your gender Male(M) or Female(F):  ");
                 setGender(input.next().charAt(0));
-                
-                line.println(getName()+","+getAge()+","+getSubject()+","+getAverage()+","+getTelephone()+","+getGender());
+
+                line.println(getName() + "," + getAge() + "," + getSubject() + "," + getAverage()
+                        + "," + getTelephone() + "," + getGender());
                 line.close();
                 write.close();
 
-                } catch (IOException ex) {
-                    Logger.getLogger(PeopleData.class.getName()).log(Level.SEVERE, null, ex);
-                }           
-            }                                       
+            } catch (IOException ex) {
+                Logger.getLogger(PeopleData.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        } else {
+            try {
+>>>>>>> 80d18dc93979368d0200f099ac4e9dc9abbb738a
+                FileWriter write = new FileWriter(file, true);
+                PrintWriter line = new PrintWriter(write);
+
+                System.out.print("Enter your name: ");
+                setName(input.nextLine());
+                System.out.print("Enter your age: ");
+                setAge(input.nextInt());
+                input.nextLine();
+                System.out.print("Enter your telephone: ");
+                setTelephone(input.nextLine());
+                System.out.print("Enter your subject: ");
+                setSubject(input.nextLine());
+                System.out.print("Enter your average: ");
+                setAverage(input.nextFloat());
+                System.out.print("Enter your gender Male(M) or Female(F):  ");
+                setGender(input.next().charAt(0));
+
+                line.println(getName() + "," + getAge() + "," + getSubject() + "," + getAverage() + "," + getTelephone() + "," + getGender());
+                line.close();
+                write.close();
+
+            } catch (IOException ex) {
+                Logger.getLogger(PeopleData.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+<<<<<<< HEAD
         
        /*public InformationData(int age, String name, String subject, String telephone, float average, char gender ) {
             this.age = age;
@@ -109,6 +161,10 @@ public class InformationData {
     
         
         
+=======
+    }
+
+>>>>>>> 80d18dc93979368d0200f099ac4e9dc9abbb738a
     /**
      * @return the age
      */
@@ -193,4 +249,3 @@ public class InformationData {
         this.gender = gender;
     }
 }
-
