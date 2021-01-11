@@ -46,7 +46,6 @@ public class PeopleData {
                    object1.getAverage();
                    object1.getGender();
                    
-                   Gson gson = new Gson();
                    
                    
                    String dataToSave   =  object1.getName()+","+object1.getAge()+","+object1.getTelephone()+","

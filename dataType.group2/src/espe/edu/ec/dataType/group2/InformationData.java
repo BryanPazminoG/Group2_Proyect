@@ -180,9 +180,5 @@ public class InformationData {
     public void setGender(char gender) {
         this.gender = gender;
     }
-
-    private Gson Gson() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }
 
