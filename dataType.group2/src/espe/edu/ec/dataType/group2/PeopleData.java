@@ -3,8 +3,13 @@ package espe.edu.ec.dataType.group2;
 import com.google.gson.Gson;
 import ec.edu.espe.filemanager.utils.Data;
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * @author Group2
@@ -33,40 +38,26 @@ public class PeopleData {
            switch(option){
                
                case 1:
-                   
-                   
-                   InformationData object1 = new InformationData();
-                   object1.DataOut();                   
-                   object1.getName();   
-                   object1.getAge();   
-                   object1.getTelephone();  
-                   object1.getSubject();
-                   object1.getAverage();
-                   object1.getGender();
-                   String dataToSave   =  object1.getName()+","+object1.getAge()+","+object1.getTelephone()+","
-                                       +object1.getSubject()+","+object1.getAverage()+","+object1.getGender();
-                   
-                   
-                   InformationData object2 = new InformationData(23, "Anthony Macas", "POO" , "09687428556" ,15 ,  'M'); 
-                
-                   
-                   
-                   System.out.println(" ");
-                   Data.save("Group2.csv", dataToSave);
-                   //InformationData datas = new InformationData(file,"Juanito");
-                   
-                   //Gson gson = new Gson();
-                   
-                   //System.out.println(gson.toJson(file));
+                   try{
+                       DataOut();
+                       
+                   }catch(Exception ex){
+                       
+                   }
                    
                    
                    
                    
-                   System.out.println(" ");                  
+                  
+                   
+                   
+                   
+                   
+                                   
                    break;
                    
                case 2:
-                   //File file = new File("Group2.csv");
+                   
                    Scanner keyboard = new Scanner(System.in);
                    System.out.println(" ");
                    System.out.print("Write the word to search in the file: ");
@@ -74,7 +65,7 @@ public class PeopleData {
                    System.out.println("");
                    Data.find(file, data);
                    System.out.println(" ");
- //                  System.out.println("toys size --> " + Data.length);
+ //                System.out.println("toys size --> " + Data.length);
 
                    break;
                    
@@ -96,4 +87,80 @@ public class PeopleData {
            } 
        }
     }    
+
+public static void DataOut(){
+            
+            Scanner input = new Scanner(System.in);
+            File file = new File("Group2.csv");
+                        
+            if (!file.exists()) {          
+                try {                              
+                    file.createNewFile();
+                    FileWriter write = new FileWriter(file, true);
+                    PrintWriter line = new PrintWriter(write);
+
+                    System.out.print("Enter your name: ");
+                    String name = input.nextLine();
+                    System.out.print("Enter your age: ");
+                    int age = input.nextInt();
+                    input.nextLine();
+                    System.out.print("Enter your telephone: ");
+                    String telephone = input.nextLine();
+                    System.out.print("Enter your subject: ");
+                    String subject = input.nextLine();
+                    System.out.print("Enter your average: ");
+                    float average = input.nextFloat();
+                    System.out.print("Enter your gender Male(M) or Female(F):  ");
+                    char gender = input.next().charAt(0);                    
+                    InformationData information = new InformationData(name, age, telephone, subject, average, gender);
+                    line.print(information);
+                    Gson gson = new Gson();
+                    String saveData = gson.toJson(information);
+                    Data.save("Group2.csv", saveData + "\n");
+                    line.close();
+                    write.close();            
+
+                }catch (IOException ex) {
+                    
+                }
+            
+            } else {
+                try {
+                    FileWriter write = new FileWriter(file, true);
+                    PrintWriter line = new PrintWriter(write);
+
+                    System.out.print("Enter your name: ");
+                    String name = input.nextLine();
+                    System.out.print("Enter your age: ");
+                    int age = input.nextInt();
+                    input.nextLine();
+                    System.out.print("Enter your telephone: ");
+                    String telephone = input.nextLine();
+                    System.out.print("Enter your subject: ");
+                    String subject = input.nextLine();
+                    System.out.print("Enter your average: ");
+                    float average = input.nextFloat();
+                    System.out.print("Enter your gender Male(M) or Female(F):  ");
+                    char gender = input.next().charAt(0);                    
+                    InformationData information = new InformationData(name, age, telephone, subject, average, gender);
+                    
+                    
+                    //line.print(information);
+                    
+                    
+                    Gson gson = new Gson();
+                    String saveData = gson.toJson(information);
+                    Data.save("Group2.csv", saveData);
+                    line.close();
+                    write.close(); 
+
+                } catch (IOException ex) {
+                    
+                }           
+            }                                       
+        }
+
+
+
 }
+

@@ -5,11 +5,6 @@
  */
 package espe.edu.ec.dataType.group2;
 
-import java.io.*;
-import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 /**
  *
  * @author Group2
@@ -23,15 +18,18 @@ public class InformationData {
     private float average;
     private char gender;
 
-    public InformationData() {
-    this.age = 0;
-    this.name = "";
-    this.subject = "";
-    this.telephone= "";
-    this.average = 0;
-    this.gender = ' ';
+    InformationData() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
-}
+    InformationData(String name, int age, String telephone, String subject, float average, char gender) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String toString() {
+        return "InformationData{" + "age=" + age + ", name=" + name + ", subject=" + subject + ", telephone=" + telephone + ", average=" + average + ", gender=" + gender + '}';
+    }
 
     public InformationData(int age, String name, String subject, String telephone, float average, char gender) {
         this.age = age;
@@ -42,82 +40,7 @@ public class InformationData {
         this.gender = gender;
     }
 
-    @Override
-    public String toString() {
-        return "InformationData{" + "age=" + age + ", name=" + name + ", subject=" + subject + ", telephone=" + telephone + ", average=" + average + ", gender=" + gender + '}';
-    }
-    
-    
-    
-public void DataOut(){
-            
-            Scanner input = new Scanner(System.in);
-            File file = new File("Group2.csv");
-                        
-            if (!file.exists()) {          
-                try {                              
-                    file.createNewFile();
-                    FileWriter write = new FileWriter(file, true);
-                    PrintWriter line = new PrintWriter(write);
-
-                    System.out.print("Enter your name: ");
-                    setName(input.nextLine());
-                    System.out.print("Enter your age: ");
-                    setAge(input.nextInt());
-                    input.nextLine();
-                    System.out.print("Enter your telephone: ");
-                    setTelephone(input.nextLine());
-                    System.out.print("Enter your subject: ");
-                    setSubject(input.nextLine());
-                    System.out.print("Enter your average: ");
-                    setAverage(input.nextFloat()); 
-                    System.out.print("Enter your gender Male(M) or Female(F):  ");
-                    setGender(input.next().charAt(0));             
-                    line.println(getName()+","+getAge()+","+getSubject()+","+getAverage()+","+getTelephone()+","+getGender());
-                    line.close();
-                    write.close();
-              
-
-                
-
-}catch (IOException ex) {
-                    Logger.getLogger(PeopleData.class
-.getName()).log(Level.SEVERE, null, ex);
-                }
-            
-            } else {
-                try {
-                FileWriter write = new FileWriter(file, true);
-                PrintWriter line = new PrintWriter(write);
-
-                System.out.print("Enter your name: ");
-                setName(input.nextLine());
-                System.out.print("Enter your age: ");
-                setAge(input.nextInt());
-                input.nextLine();
-                System.out.print("Enter your telephone: ");
-                setTelephone(input.nextLine());
-                System.out.print("Enter your subject: ");
-                setSubject(input.nextLine());
-                System.out.print("Enter your average: ");
-                setAverage(input.nextFloat()); 
-                System.out.print("Enter your gender Male(M) or Female(F):  ");
-                setGender(input.next().charAt(0));
-                
-                line.println(getName()+","+getAge()+","+getSubject()+","+getAverage()+","+getTelephone()+","+getGender());
-                line.close();
-                write.close();
-
-                
-
-} catch (IOException ex) {
-                    Logger.getLogger(PeopleData.class
-.getName()).log(Level.SEVERE, null, ex);
-                }           
-            }                                       
-        }
-
-   /**
+    /**
      * @return the age
      */
     public int getAge() {
@@ -200,4 +123,5 @@ public void DataOut(){
     public void setGender(char gender) {
         this.gender = gender;
     }
+
 }
